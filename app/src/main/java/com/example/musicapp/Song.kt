@@ -1,31 +1,30 @@
 package com.example.musicapp
+
 import android.util.Log
-class Song {
-    var name : String = ""
-    var artist : String = ""
-    var duration : String = ""
-    var year : Int = 0
+
+class Song(var name: String, var artist: String, var duration: String, var year: Int) {
+
+    // 2nd constructor (Secondary) - used when year is not provided
+    constructor(name: String, artist: String, duration: String) : this(name, artist, duration, 0)
 
     fun play() {
-        Log.v("Song", "$name is playing ")
-
+        Log.v("Song", "$name is playing now ")
     }
 
     fun pause() {
-        Log.v("Song", "$name is paused")
-
+        Log.v("Song", "$name is paused now")
     }
 
     fun stop() {
-        Log.v("Song", "$name is stopped")
-
+        Log.v("Song", "$name is stopped now")
     }
 
-    fun Favourite() : Boolean {
+    fun Favourite(): Boolean {
+        Log.v("Song", "$name favourited now")
         return true
     }
 
+    fun GetDisplayString(): String {
+        return "$name - $artist ($duration)"
     }
-
-
-
+}
